@@ -4,7 +4,9 @@
 This project is the solution to the IHX coding challenge provided. This repo consists of 5 different problems.
 
 ## Usage
-TBD
+```
+go run cmd/${PROBLEM_FOLDER}/main.go
+```
 
 ## Problem and Solution
 

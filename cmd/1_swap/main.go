@@ -48,8 +48,6 @@ func parseInput() (*input, error) {
 		return nil, errors.New("input length must be 2")
 	}
 
-	fmt.Println(numbers)
-
 	a, err := strconv.Atoi(numbers[0])
 	if err != nil {
 		return nil, errors.New("first number is not integer-parseable")
