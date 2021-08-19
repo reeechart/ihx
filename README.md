@@ -4,9 +4,14 @@
 This project is the solution to the IHX coding challenge provided. This repo consists of 5 different problems.
 
 ## Usage
-```sh
-go run cmd/${PROBLEM_FOLDER}/main.go
-```
+1. Run the following command below to run the program, where `${PROBLEM_FOLDER}` is one of the problem folder we are about to run, for example: `1_swap`
+    ```sh
+    go run cmd/${PROBLEM_FOLDER}/main.go # go run cmd/1_swap/main.go
+    ```
+
+2. Write the input based on the problem in stdin (the input is read per line basis)
+
+3. An output will be written in the stdout
 
 ## Problem and Solution
 
@@ -42,8 +47,28 @@ Since the array may contain multiple elements that have the same appearance freq
 3. Use the map to create a custom struct which contains the `elem` and `count`
 4. Sort the element appearance by its appearance from the most frequent to the least frequent by using built-in `sort.Slice` function provided by Go
 
+#### Complexity
+Time complexity: `O(nlogn)` due to sorting algorithm (based on quick sort)
+Space complexity: `O(n)`
+
 ### 3. Merge Strings
-TBD
+
+#### Brief Problem Description
+Given two different strings, merge the strings into one alternatingly (starting from the first string and followed by the second).
+
+#### Algorithm
+While we can solve this using a plain array in Golang, we can use queue data structure to help us in coordinating the characters inside the string. This also helps to clean the code for the solution
+
+1. Generate a queue of character from 2 strings given
+2. Initiate an empty string which represents the result (name this `result`)
+3. While both of them is not empty pop both of them and append the first char and second char respectively to the string (`result`)
+4. By this point, either of the char queues is empty (no more characters in the queue), using the non-empty queue, while it is not empty, append every characters in the queue to the resulting string.
+5. The `result` will be the merged strings
+
+#### Complexity
+Time complexity: `O(m+n)`
+Space complexity: `O(m+n)`
+where `m` is the length of the first string and `n` is the length of the second string
 
 ### 4. Lexicographically Minimal String
 TBD
