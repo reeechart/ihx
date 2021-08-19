@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/reeechart/ihx/pkg/queue"
+	"github.com/reeechart/ihx/cmd/3_string_merge/solution"
 )
 
 func main() {
@@ -15,34 +15,8 @@ func main() {
 		panic(err)
 	}
 
-	mergedString := mergeStrings(inp.a, inp.b)
+	mergedString := solution.MergeStrings(inp.a, inp.b)
 	fmt.Println(mergedString)
-}
-
-func mergeStrings(a string, b string) string {
-	aq := queue.NewCharFromString(a)
-	bq := queue.NewCharFromString(b)
-
-	result := ""
-
-	for !aq.IsEmpty() && !bq.IsEmpty() {
-		charA, _ := aq.Dequeue()
-		charB, _ := bq.Dequeue()
-
-		result = fmt.Sprintf("%s%s%s", result, charA, charB)
-	}
-
-	for !aq.IsEmpty() {
-		char, _ := aq.Dequeue()
-		result = fmt.Sprintf("%s%s", result, char)
-	}
-
-	for !bq.IsEmpty() {
-		char, _ := bq.Dequeue()
-		result = fmt.Sprintf("%s%s", result, char)
-	}
-
-	return result
 }
 
 type input struct {
