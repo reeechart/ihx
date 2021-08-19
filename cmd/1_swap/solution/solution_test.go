@@ -15,28 +15,28 @@ func TestSwap(t *testing.T) {
 		expectedB int
 	}{
 		{
-			name:      "Successfully swapping 2 positive integers",
+			name:      "Two positive integers",
 			a:         2,
 			b:         3,
 			expectedA: 3,
 			expectedB: 2,
 		},
 		{
-			name:      "Successfully swapping positive and negative integers",
+			name:      "Positive and negative integers",
 			a:         2,
 			b:         -1,
 			expectedA: -1,
 			expectedB: 2,
 		},
 		{
-			name:      "Successfully swapping 2 negative integers",
+			name:      "Two negative integers",
 			a:         -200,
 			b:         -1,
 			expectedA: -1,
 			expectedB: -200,
 		},
 		{
-			name:      "Successfully swapping same integers",
+			name:      "Same integers",
 			a:         5,
 			b:         5,
 			expectedA: 5,
