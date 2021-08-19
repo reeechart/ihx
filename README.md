@@ -87,7 +87,12 @@ The overall algorithm for this problem is roughly the same as the previous probl
 2. Initialize an empty string representing the result (this will be named `result`)
 3. While both of the strings are not empty, compare the first element of the queue (assume character from first queue is `A` and character from second queue is `B`)
 4. If `A` is "bigger" than `B`, append `B` to the `result`, pop/dequeue the element from the second queue, if `A` is "smaller" than `B`, append `A` to the `result`, and pop/dequeue the element from the first queue.
-5. If `A` and `B` is an equal character, TBD
+5. If `A` and `B` is an equal character:
+    a. Iterate both of the queues while both of the characters are still the same and iterator has not reached the end of any queues 
+    b. If we find difference in one of the characters, pick the queue with the "smaller" alphabet
+    c. If the iterator reaches an end of one queue, iterate the non-empty queue and compare with the first element of the other queue while it is not empty and both of character matches
+    d. If a difference is found, pick the queue with the "smaller" alphabet
+    e. If both of the queues reach an end, it means all of the characters inside the queue is the same, so pick any of the queue
 6. By this point, if either one of the queue is not empty, append the remaining characters inside the non-empty queue to `result`.
 7. The `result` will be a lexicographically-minimum string.
 
