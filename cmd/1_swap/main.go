@@ -7,6 +7,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/reeechart/ihx/cmd/1_swap/solution"
 )
 
 func main() {
@@ -19,15 +21,8 @@ func main() {
 	b := inp.b
 
 	fmt.Printf("Before swap: a=%d, b=%d\n", a, b)
-	swap(&a, &b)
+	solution.Swap(&a, &b)
 	fmt.Printf("After swap: a=%d, b=%d\n", a, b)
-}
-
-// Swap function swaps two integers in-place.
-func swap(a *int, b *int) {
-	*a += *b
-	*b = *a - *b
-	*a = *a - *b
 }
 
 type input struct {
