@@ -49,6 +49,7 @@ Since the array may contain multiple elements that have the same appearance freq
 
 #### Complexity
 Time complexity: `O(nlogn)` due to sorting algorithm (based on quick sort)
+
 Space complexity: `O(n)`
 
 ### 3. Merge Strings
@@ -67,7 +68,9 @@ While we can solve this using a plain array in Golang, we can use queue data str
 
 #### Complexity
 Time complexity: `O(m+n)`
+
 Space complexity: `O(m+n)`
+
 where `m` is the length of the first string and `n` is the length of the second string
 
 ### 4. Lexicographically Minimal String
@@ -90,6 +93,7 @@ The overall algorithm for this problem is roughly the same as the previous probl
 
 #### Complexity
 Time complexity: `O(m+n)^2` since we have to resolve conflict if `A`==`B`
+
 Space complexity: `O(m+n)`
 
 ### 5. List Maximum
