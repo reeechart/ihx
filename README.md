@@ -97,7 +97,23 @@ Time complexity: `O(m+n)^2` since we have to resolve conflict if `A`==`B`
 Space complexity: `O(m+n)`
 
 ### 5. List Maximum
-TBD
+
+#### Brief Problem Desccription
+Given an input of n (elements count) and the number of operation (operations count), and a certain set of operation, return the maximum value of the list after the operations are done.
+
+#### Algorithm
+This problem can be solved by running the simulation manually (running all of the operations)
+
+1. Initialize the array of zeroes consisting of N elements
+2. For each operation, from the left bound (a) to right bound (b) add the addition (k) to the array
+3. Iterate the array to get the maximum value of the array
+
+Since the input constraint `k` is 1billion and the number of operations (`M`) might reach 200k, we use a 64-bit integer for all of the calculations (excluding the index).
+
+#### Complexity
+Time complexity: `O(nm)` where `n` is the number of elements and `m` is the number of operations
+
+Space complexity: `O(n)`
 
 ## Author
 Ferdinandus Richard
