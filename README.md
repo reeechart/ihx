@@ -71,7 +71,26 @@ Space complexity: `O(m+n)`
 where `m` is the length of the first string and `n` is the length of the second string
 
 ### 4. Lexicographically Minimal String
-TBD
+
+#### Brief Problem Description
+Given two collections of upper-case characters, merge two strings based on stack principle (only take an element at one end), so that it produces the lexicographically minimum string.
+
+#### Algorithm
+While the problem explicitly mentions the "stack" data structure, since the string has FIFO (first-in-first-out) property, queue data structure is used instead of stack.
+
+The overall algorithm for this problem is roughly the same as the previous problem (merge strings). However, the rule for the merging of the strings is differentiated, that is by comparing the character from both of the queues. Once one of them is empty, append the rest of the non-empty queue to the resulting string.
+
+1. Convert both of the strings into queues of characters
+2. Initialize an empty string representing the result (this will be named `result`)
+3. While both of the strings are not empty, compare the first element of the queue (assume character from first queue is `A` and character from second queue is `B`)
+4. If `A` is "bigger" than `B`, append `B` to the `result`, pop/dequeue the element from the second queue, if `A` is "smaller" than `B`, append `A` to the `result`, and pop/dequeue the element from the first queue.
+5. If `A` and `B` is an equal character, TBD
+6. By this point, if either one of the queue is not empty, append the remaining characters inside the non-empty queue to `result`.
+7. The `result` will be a lexicographically-minimum string.
+
+#### Complexity
+Time complexity: `O(m+n)^2` since we have to resolve conflict if `A`==`B`
+Space complexity: `O(m+n)`
 
 ### 5. List Maximum
 TBD
