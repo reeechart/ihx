@@ -3,12 +3,12 @@ package main
 import (
 	"bufio"
 	"errors"
-	"fmt"
 	"os"
 	"regexp"
-	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/reeechart/ihx/cmd/2_appearance_count/solution"
 )
 
 var (
@@ -21,45 +21,8 @@ func main() {
 		panic(err)
 	}
 
-	appearance := countAppearance(inp.elems)
-	printOutput(appearance)
-}
-
-func countAppearance(elems []int) []pairContainer {
-	counter := make(map[int]int)
-	for _, elem := range elems {
-		counter[elem] += 1
-	}
-
-	appearance := make([]pairContainer, 0)
-	for elem, count := range counter {
-		appearance = append(appearance, pairContainer{
-			elem:  elem,
-			count: count,
-		})
-	}
-
-	sortAppearance(appearance)
-
-	return appearance
-}
-
-type pairContainer struct {
-	elem  int
-	count int
-}
-
-func sortAppearance(pairs []pairContainer) {
-	sort.Slice(pairs, func(i, j int) bool {
-		return pairs[i].count > pairs[j].count
-	})
-}
-
-func printOutput(pairs []pairContainer) {
-	fmt.Println("number --> total")
-	for _, pair := range pairs {
-		fmt.Printf("%d --> %d\n", pair.elem, pair.count)
-	}
+	appearance := solution.CountAndSortAppearance(inp.elems)
+	solution.PrintAppearance(appearance)
 }
 
 type input struct {
