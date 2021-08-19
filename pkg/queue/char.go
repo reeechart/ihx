@@ -37,6 +37,7 @@ func (q *CharQueue) Peek() (string, error) {
 	return q.queue[0], nil
 }
 
+// Get returns the element of queue in the specified index.
 func (q *CharQueue) Get(index int) (string, error) {
 	if index >= q.Size() {
 		return "", ErrIndexOutOfBound
@@ -45,6 +46,7 @@ func (q *CharQueue) Get(index int) (string, error) {
 	return q.queue[index], nil
 }
 
+// Size returns the number of items in the queue.
 func (q *CharQueue) Size() int {
 	return len(q.queue)
 }
