@@ -4,6 +4,8 @@ import (
 	"github.com/reeechart/ihx/cmd/5_list_max/model"
 )
 
+// MaximumOfList returns a 64-bit integer that reprensents the maximum of value in a given array
+// after doing some operations given.
 func MaximumOfList(elemCount int, operations []model.Operation) int64 {
 	arr := NewZeroArray(elemCount)
 

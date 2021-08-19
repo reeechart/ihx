@@ -6,6 +6,7 @@ import (
 	"github.com/reeechart/ihx/pkg/queue"
 )
 
+// MergeStrings merges two strings alternatingly.
 func MergeStrings(a string, b string) string {
 	aq := queue.NewCharFromString(a)
 	bq := queue.NewCharFromString(b)

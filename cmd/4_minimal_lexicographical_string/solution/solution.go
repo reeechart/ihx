@@ -7,6 +7,8 @@ import (
 	"github.com/reeechart/ihx/pkg/queue"
 )
 
+// GenerateLexicographicallyMinimalString generates a lexicographically minimum string based on two strings.
+// It can only generate the string based on the principle of a queue (FIFO).
 func GenerateLexicographicallyMinimalString(a string, b string) string {
 	aq := queue.NewCharFromString(a)
 	bq := queue.NewCharFromString(b)

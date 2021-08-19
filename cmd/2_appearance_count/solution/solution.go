@@ -5,6 +5,8 @@ import (
 	"sort"
 )
 
+// CountAndSortAppearance counts the apperance of each element an array and sort them based on their appearance
+// frequency from highest to lowest.
 func CountAndSortAppearance(elems []int) []PairContainer {
 	pairs := countAppearance(elems)
 	sortAppearance(pairs)
@@ -39,6 +41,7 @@ func sortAppearance(pairs []PairContainer) {
 	})
 }
 
+// PrintAppearance prints the number of appearance of the sorted appearance count.
 func PrintAppearance(pairs []PairContainer) {
 	fmt.Println("number --> total")
 	for _, pair := range pairs {
