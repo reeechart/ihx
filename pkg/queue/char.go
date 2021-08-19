@@ -3,7 +3,8 @@ package queue
 import "errors"
 
 var (
-	ErrQueueEmpty = errors.New("queue is empty")
+	ErrQueueEmpty      = errors.New("queue is empty")
+	ErrIndexOutOfBound = errors.New("index is out of queue bound")
 )
 
 // CharQueue is a queue that holds a collection of chars.
@@ -34,6 +35,18 @@ func (q *CharQueue) Peek() (string, error) {
 	}
 
 	return q.queue[0], nil
+}
+
+func (q *CharQueue) Get(index int) (string, error) {
+	if index >= q.Size() {
+		return "", ErrIndexOutOfBound
+	}
+
+	return q.queue[index], nil
+}
+
+func (q *CharQueue) Size() int {
+	return len(q.queue)
 }
 
 // Enqueue adds new element to the end of queue, element is assumed to be a single character in form of string.
