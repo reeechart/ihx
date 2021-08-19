@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/reeechart/ihx/pkg/queue"
+	"github.com/reeechart/ihx/cmd/4_minimal_lexicographical_string/solution"
 )
 
 func main() {
@@ -18,46 +18,9 @@ func main() {
 	}
 
 	for i := 0; i < inp.testCount; i++ {
-		lexMinString := generateLexicographicallyMinimalString(inp.testCases[i].a, inp.testCases[i].b)
+		lexMinString := solution.GenerateLexicographicallyMinimalString(inp.testCases[i].a, inp.testCases[i].b)
 		fmt.Println(lexMinString)
 	}
-}
-
-func generateLexicographicallyMinimalString(a string, b string) string {
-	aq := queue.NewCharFromString(a)
-	bq := queue.NewCharFromString(b)
-
-	result := ""
-
-	for !aq.IsEmpty() && !bq.IsEmpty() {
-		charA, _ := aq.Peek()
-		charB, _ := bq.Peek()
-
-		switch strings.Compare(charA, charB) {
-		case 1:
-			result = fmt.Sprintf("%s%s", result, charB)
-			bq.Dequeue()
-		case -1:
-			result = fmt.Sprintf("%s%s", result, charA)
-			aq.Dequeue()
-		default: // case 0
-			// TODO: Decide which side to pick by peeking the next element, if all matches, pick any side
-			result = fmt.Sprintf("%s%s", result, charA)
-			aq.Dequeue()
-		}
-	}
-
-	for !aq.IsEmpty() {
-		char, _ := aq.Dequeue()
-		result = fmt.Sprintf("%s%s", result, char)
-	}
-
-	for !bq.IsEmpty() {
-		char, _ := bq.Dequeue()
-		result = fmt.Sprintf("%s%s", result, char)
-	}
-
-	return result
 }
 
 type input struct {
